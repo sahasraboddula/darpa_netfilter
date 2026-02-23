@@ -2,7 +2,7 @@
 The netfilter framework allows for intercepting and manipulating network packets in the Linux kernel.
 
 ### LLM Prompt
-The harness file `nf_harness.c` was generated using Claude's Sonnet 4.6 model. This was the initial prompt given along with files from the netfilter directory:
+The harness file `nf_harness.c` was generated using Claude's Sonnet 4.6 model. This was the initial prompt given:
 > Write a KLEE symbolic execution harness file to detect vulnerabilities in the linux kernel netfilter files. 
 > The WMIs to focus on are: 
 > 1. WMI-1 (Stale Reference): Entity freed while trigger maintains pointer
@@ -82,25 +82,6 @@ object 0: data: b'\x01\x00\x00\x00'
 object 0: hex : 0x01000000
 object 0: int : 1
 object 0: uint: 1
-object 0: text: ....
-object 1: name: 'wmi2_enable_attacker'
-object 1: size: 8
-object 1: data: b'\x00\x00\x00\x00\x00\x00\x00\x00'
-object 1: hex : 0x0000000000000000
-object 1: int : 0
-object 1: uint: 0
-object 1: text: ........
-```
-```
-ktest file : 'klee-out-nf/test000002.ktest'
-args       : ['nf_harness.bc']
-num objects: 2
-object 0: name: 'wmi1_dead'
-object 0: size: 4
-object 0: data: b'\x00\x00\x00\x00'
-object 0: hex : 0x00000000
-object 0: int : 0
-object 0: uint: 0
 object 0: text: ....
 object 1: name: 'wmi2_enable_attacker'
 object 1: size: 8
