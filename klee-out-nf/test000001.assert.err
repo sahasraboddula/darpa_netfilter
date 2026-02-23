@@ -1,0 +1,9 @@
+Error: ASSERTION FAIL: !klee_is_symbolic((unsigned int)hook->enable_fn) && "WMI-2: type confusion -- funcptr is symbolic/attacker-controlled"
+File: nf_harness.c
+Line: 175
+assembly.ll line: 249
+State: 2
+Stack: 
+	#000000249 in sim_call_enable(137442921283584, 137012350812160) at nf_harness.c:175
+	#100000209 in test_wmi2_type_confusion() at nf_harness.c:197
+	#200000949 in main() at nf_harness.c:458
